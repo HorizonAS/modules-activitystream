@@ -1,3 +1,7 @@
+#/*global require*/
+
+'use strict'
+
 define 'ActivityStream', [
     'backbone'
     'modules/activityStream'
