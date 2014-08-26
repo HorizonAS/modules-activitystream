@@ -25,8 +25,8 @@ define [
           map:
             displayName: function(data) {return "Dr. " + data['title'];},
             id: 'id',
-            url: function(data) {return "//example.com/" + data['slug'];},
-            imageMedium: { avatar: { url: 'medium' } }
+            url: (data)-> "//example.com#{ data['slug']}",
+            imageMedium: (data)-> "Dr. #{ data['title']}"
 
 
         #your_object_name_2:
