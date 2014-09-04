@@ -4,7 +4,6 @@
 
 # Main RequireJS properties loaded on init:
 require.config
-    deps: ['main']
     shim:
         underscore:
             exports: '_'
@@ -33,3 +32,5 @@ require.config
         collections: '/scripts/collections'
         modules: '/scripts/modules',
         localconfig: '/scripts/localconfig'
+
+

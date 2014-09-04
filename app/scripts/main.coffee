@@ -1,4 +1,5 @@
 #/*global require*/
+# This file is used by grunt-requirejs to generate the build file with all the modules
 
 'use strict'
 
@@ -18,7 +19,6 @@ define 'ActivityStream', [
         # settings that an implementing site
         # would use to instantiate the module
 
-require ['ActivityStream'], (AS)->
         # Different socket events will probably have to be handled
         # in a module that gets instantiated here
         # socket.on "message", messageReceived = (message) ->
@@ -29,3 +29,5 @@ require ['ActivityStream'], (AS)->
             #   hearts = $("#" + m + " i")
             #   $("a").find(hearts).toggleClass "chosen"
 
+
+require ['ActivityStream']
