@@ -41,9 +41,10 @@
 
             require(["ActivityStream"], function(AS){
                 var user = {
+                    activityStreamServiceAPI: 'http://as.dev.nationalgeographic.co:9365/',
                     user: {
-                        type: 'db_user',
-                        id: 1
+                        type: 'mmdb_user',
+                        id: 2
                     }
                 }
                 AS.ready(user)

@@ -21,10 +21,13 @@ define [
 
         ready: (options) ->
             @user = new User(options.user)
+            if options.activityStreamServiceAPI
+                options.baseUrl = options.activityStreamServiceAPI + 'api/v1/'
+            config.overwrite(options)
             @init()
 
         init: () ->
-            @setAuth config.activityStreamServiceAPI + 'api/v1', @user
+            @setAuth config.get('activityStreamServiceAPI') + 'api/v1', @user
 
 
         setAuth: (url, user) ->
@@ -52,7 +55,7 @@ define [
                     @stream.error("Error: " + textStatus )
 
         createSocket: () ->
-            @socket = io.connect(config.activityStreamServiceAPI)
+            @socket = io.connect(config.get('activityStreamServiceAPI'))
             @socket.on 'connect', =>
                 @socketStart()
 

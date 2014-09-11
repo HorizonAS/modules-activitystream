@@ -14,10 +14,10 @@ define [
 
     class Mapper
         constructor: (type, object) ->
-            unless config.api[type] and config.api[type].map
+            unless config.get('api')[type] and config.get('api')[type].map
                 throw new Error(type+':Undefined API map')
             @type = type
-            @base = config.api[@type].map
+            @base = config.get('api')[@type].map
             @map = {}
             return @drill object
 

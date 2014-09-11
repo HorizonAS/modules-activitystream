@@ -6,7 +6,7 @@ define [
     'modules/storage'
     'modules/mapper'
 ], ($, _, Backbone, config, storage, Mapper) ->
-    
+
     'use strict';
 
     class ComponentModel extends Backbone.Model
@@ -39,8 +39,8 @@ define [
                 return new $.Deferred().resolve resp
 
             # Or getting from ajax
-            if config.api[@type]
-                options = config.api[@type]
+            if config.get('api')[@type]
+                options = config.get('api')[@type]
                 # re-assign success callback
                 options.success = store
             else
