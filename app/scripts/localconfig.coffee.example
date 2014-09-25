@@ -31,3 +31,6 @@ define [
 
         #your_object_name_2:
         #  ...
+
+    # Enable/disable Following data
+    enableFollowingData: false

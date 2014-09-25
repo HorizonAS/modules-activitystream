@@ -10,6 +10,12 @@ define [
     'use strict';
 
     class ComponentModel extends Backbone.Model
+        defaults:
+            data:
+                type: ''
+                api: '#'
+                aid: ''
+                created: ''
 
         initialize: ->
             @type = @get('data').type
