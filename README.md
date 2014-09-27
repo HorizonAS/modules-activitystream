@@ -3,17 +3,17 @@ module-activitystream
 
 #Activity Stream front-end module
 
-###Instalation:
+###Installation:
 
-1. First as always is necessary to clone the repo:
+1. First as always it's necessary to clone the repo:
          
-         git clone git@github.com:natgeo/modules-activitystream.git
+        git clone git@github.com:natgeo/modules-activitystream.git
 
-2. Make sure you have ruby installed by running:
+2. Make sure you have Ruby installed by running:
 
         ruby -v
 
-3. Then install sass by running: 
+3. Then install Sass by running: 
 
         gem install sass 
      
@@ -25,7 +25,7 @@ module-activitystream
         bundle 
      If bundle install fails, then try executing: 
      
-         gem install bundler
+        gem install bundler
     
     *For linux users use sudo*
 
@@ -39,7 +39,7 @@ module-activitystream
      
      If this fails probably you need to execute 
      
-             sudo npm install -g bower 
+        sudo npm install -g bower 
      
      This will install bower globally
 
@@ -49,6 +49,6 @@ module-activitystream
      
      *If grunt is not installed then execute:*
      
-             sudo npm install -g grunt-cli
+        sudo npm install -g grunt-cli
      
      *The same with bower, this will install grunt globally.*
