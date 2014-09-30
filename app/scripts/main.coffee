@@ -28,6 +28,3 @@ define 'ActivityStream', [
             #   if l is ("yourshot_photo_id")
             #   hearts = $("#" + m + " i")
             #   $("a").find(hearts).toggleClass "chosen"
-
-
-# require ['ActivityStream']
