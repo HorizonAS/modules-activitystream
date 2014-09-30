@@ -30,4 +30,4 @@ define 'ActivityStream', [
             #   $("a").find(hearts).toggleClass "chosen"
 
 
-require ['ActivityStream']
+# require ['ActivityStream']

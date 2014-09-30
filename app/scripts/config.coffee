@@ -4,6 +4,7 @@
 
 # Main RequireJS properties loaded on init:
 require.config
+    deps: ['ActivityStream']
     shim:
         underscore:
             exports: '_'
@@ -30,7 +31,8 @@ require.config
         models: '/scripts/models'
         views: '/scripts/views'
         collections: '/scripts/collections'
-        modules: '/scripts/modules',
+        modules: '/scripts/modules'
         localconfig: '/scripts/localconfig'
+        ActivityStream: '/scripts/main'
 
 
