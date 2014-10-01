@@ -1,0 +1,245 @@
+Sep 30, 2014 11:15:22 AM org.openqa.grid.selenium.GridLauncher main
+INFO: Launching a standalone server
+Setting system property webdriver.chrome.driver to ./node_modules/.bin/chromedriver
+Setting system property webdriver.ie.driver to ./node_modules/dalek-browser-ie/lib/bin/IEDriverServer.exe
+11:15:22.931 INFO - Java: Oracle Corporation 24.65-b04
+11:15:22.933 INFO - OS: Linux 3.11.0-24-generic i386
+11:15:22.947 INFO - v2.38.0, with Core v2.38.0. Built from revision bd32d4e
+11:15:23.218 INFO - Default driver org.openqa.selenium.iphone.IPhoneDriver registration is skipped: registration capabilities Capabilities [{platform=MAC, browserName=iPad, version=}] does not match with current platform: LINUX
+11:15:23.219 INFO - Default driver org.openqa.selenium.iphone.IPhoneDriver registration is skipped: registration capabilities Capabilities [{platform=MAC, browserName=iPhone, version=}] does not match with current platform: LINUX
+11:15:23.219 INFO - Default driver org.openqa.selenium.ie.InternetExplorerDriver registration is skipped: registration capabilities Capabilities [{platform=WINDOWS, ensureCleanSession=true, browserName=internet explorer, version=}] does not match with current platform: LINUX
+11:15:23.274 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+11:15:23.276 INFO - Version Jetty/5.1.x
+11:15:23.277 INFO - Started HttpContext[/selenium-server/driver,/selenium-server/driver]
+11:15:23.278 INFO - Started HttpContext[/selenium-server,/selenium-server]
+11:15:23.278 INFO - Started HttpContext[/,/]
+11:15:23.325 INFO - Started org.openqa.jetty.jetty.servlet.ServletHandler@1a5678
+11:15:23.326 INFO - Started HttpContext[/wd,/wd]
+11:15:23.332 INFO - Started SocketListener on 0.0.0.0:4444
+11:15:23.332 INFO - Started org.openqa.jetty.jetty.Server@78529d
+11:15:23.743 INFO - Executing: [new session: Capabilities [{platform=ANY, javascriptEnabled=true, acceptSslCerts=true, browserName=chrome, name=Test}]] at URL: /session)
+11:15:23.780 INFO - Creating a new session for Capabilities [{platform=ANY, javascriptEnabled=true, acceptSslCerts=true, browserName=chrome, name=Test}]
+Starting ChromeDriver (v2.10.267517) on port 11380
+Only local connections are allowed.
+[0.467][WARNING]: PAC support disabled because there is no system implementation
+11:15:33.374 INFO - Done: /session
+11:15:33.446 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9001/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:15:36.587 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:15:36.605 INFO - Executing: [find element: By.selector: body] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:15:36.711 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:15:36.726 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: body]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/0/displayed)
+11:15:36.785 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/0/displayed
+11:15:36.809 INFO - Executing: [add cookie: mmdbsessionid=v2zoa2txubjc5ml9ua6c6toh0gktd807; path=/; domain=.nationalgeographic.com] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/cookie)
+11:15:36.835 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/cookie
+11:15:38.844 INFO - Executing: [find element: By.selector: .activitysnippet:nth-child(8) span a i] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:15:38.893 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:15:38.899 INFO - Executing: [click: 1 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitysnippet:nth-child(8) span a i]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/1/click)
+11:15:39.031 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/1/click
+11:15:44.043 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9000/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:15:45.789 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:15:50.810 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9000/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:15:51.820 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:16:01.853 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:16:01.921 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:16:01.926 INFO - Executing: [get text: 2 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/2/text)
+11:16:01.981 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/2/text
+11:16:01.990 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(2)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:16:02.048 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:16:02.054 INFO - Executing: [get text: 3 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(2)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/3/text)
+11:16:02.108 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/3/text
+11:16:02.114 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(3)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:16:02.169 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:16:02.175 INFO - Executing: [get text: 4 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(3)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/4/text)
+11:16:02.223 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/4/text
+11:16:02.229 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .activitycaption-date] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:16:02.284 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:16:02.288 INFO - Executing: [get text: 5 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .activitycaption-date]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/5/text)
+11:16:02.346 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/5/text
+11:16:02.368 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .FOLLOWED] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:16:02.421 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:16:02.427 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(2)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:16:02.457 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:16:02.462 INFO - Executing: [click: 3 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(2)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/3/click)
+11:16:10.423 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/3/click
+11:16:10.447 INFO - Executing: [find element: By.selector: body] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:16:10.598 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:16:10.612 INFO - Executing: [is displayed: 7 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: body]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/7/displayed)
+11:16:10.674 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/7/displayed
+11:16:10.682 INFO - Executing: [get current url] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:16:10.976 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:16:10.988 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9000/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:16:11.867 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:16:16.892 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9000/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:16:17.847 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:16:27.868 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:16:27.912 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:16:27.917 INFO - Executing: [click: 8 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/8/click)
+11:16:35.145 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/8/click
+11:16:35.159 INFO - Executing: [find element: By.selector: body] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:16:35.223 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:16:35.227 INFO - Executing: [is displayed: 9 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: body]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/9/displayed)
+11:16:35.253 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/9/displayed
+11:16:35.260 INFO - Executing: [get current url] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:16:35.295 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:16:35.300 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9001/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:16:36.452 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:16:36.461 INFO - Executing: [find element: By.selector: body] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:16:36.499 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:16:36.504 INFO - Executing: [is displayed: 10 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: body]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/10/displayed)
+11:16:36.549 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/10/displayed
+11:16:36.559 INFO - Executing: [add cookie: mmdbsessionid=v2zoa2txubjc5ml9ua6c6toh0gktd807; path=/; domain=.nationalgeographic.com] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/cookie)
+11:16:36.599 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/cookie
+11:16:38.612 INFO - Executing: [find element: By.selector: .activitysnippet:nth-child(9) span a i] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:16:38.649 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:16:38.651 INFO - Executing: [click: 11 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitysnippet:nth-child(9) span a i]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/11/click)
+11:16:38.724 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/11/click
+11:16:43.746 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9000/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:16:45.008 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:16:50.020 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9000/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:16:51.045 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:17:01.060 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:01.095 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:01.099 INFO - Executing: [get text: 12 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/12/text)
+11:17:01.143 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/12/text
+11:17:01.151 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(2)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:01.200 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:01.203 INFO - Executing: [get text: 13 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(2)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/13/text)
+11:17:01.241 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/13/text
+11:17:01.249 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(3)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:01.282 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:01.290 INFO - Executing: [get text: 14 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(3)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/14/text)
+11:17:01.350 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/14/text
+11:17:01.357 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .activitycaption-date] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:01.397 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:01.401 INFO - Executing: [get text: 15 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .activitycaption-date]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/15/text)
+11:17:01.442 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/15/text
+11:17:01.447 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .FAVORITED] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:01.477 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:01.490 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:01.511 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:01.516 INFO - Executing: [click: 12 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/12/click)
+11:17:04.361 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/12/click
+11:17:04.381 INFO - Executing: [find element: By.selector: body] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:04.449 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:04.452 INFO - Executing: [is displayed: 17 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: body]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/17/displayed)
+11:17:04.633 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/17/displayed
+11:17:04.637 INFO - Executing: [get current url] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:17:04.893 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:17:04.899 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9001/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:17:06.704 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:17:06.710 INFO - Executing: [find element: By.selector: body] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:06.734 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:06.739 INFO - Executing: [is displayed: 18 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: body]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/18/displayed)
+11:17:06.802 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/18/displayed
+11:17:06.808 INFO - Executing: [add cookie: mmdbsessionid=v2zoa2txubjc5ml9ua6c6toh0gktd807; path=/; domain=.nationalgeographic.com] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/cookie)
+11:17:06.828 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/cookie
+11:17:08.836 INFO - Executing: [find element: By.selector: .activitysnippet:nth-child(10) span a i] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:08.876 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:08.880 INFO - Executing: [click: 19 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitysnippet:nth-child(10) span a i]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/19/click)
+11:17:08.945 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/19/click
+11:17:13.957 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9000/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:17:15.047 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:17:20.060 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9000/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:17:21.014 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:17:31.031 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:31.069 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:31.081 INFO - Executing: [get text: 20 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/20/text)
+11:17:31.118 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/20/text
+11:17:31.125 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(2)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:31.177 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:31.188 INFO - Executing: [get text: 21 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(2)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/21/text)
+11:17:31.226 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/21/text
+11:17:31.231 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(3)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:31.280 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:31.283 INFO - Executing: [get text: 22 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(3)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/22/text)
+11:17:31.317 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/22/text
+11:17:31.322 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .activitycaption-date] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:31.362 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:31.367 INFO - Executing: [get text: 23 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .activitycaption-date]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/23/text)
+11:17:31.415 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/23/text
+11:17:31.421 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .WATCHED] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:31.464 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:31.468 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:31.496 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:31.500 INFO - Executing: [click: 20 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/20/click)
+11:17:36.664 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/20/click
+11:17:36.669 INFO - Executing: [find element: By.selector: body] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:36.863 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:36.867 INFO - Executing: [is displayed: 25 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: body]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/25/displayed)
+11:17:37.481 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/25/displayed
+11:17:37.489 INFO - Executing: [get current url] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:17:37.648 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:17:37.653 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9001/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:17:38.808 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:17:38.814 INFO - Executing: [find element: By.selector: body] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:38.861 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:38.866 INFO - Executing: [is displayed: 26 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: body]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/26/displayed)
+11:17:39.028 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/26/displayed
+11:17:39.034 INFO - Executing: [add cookie: mmdbsessionid=v2zoa2txubjc5ml9ua6c6toh0gktd807; path=/; domain=.nationalgeographic.com] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/cookie)
+11:17:39.064 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/cookie
+11:17:41.071 INFO - Executing: [find element: By.selector: .activitysnippet:nth-child(8) span a i] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:41.115 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:41.119 INFO - Executing: [click: 27 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitysnippet:nth-child(8) span a i]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/27/click)
+11:17:41.218 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/27/click
+11:17:43.228 INFO - Executing: [find element: By.selector: .activitysnippet:nth-child(9) span a i] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:43.275 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:43.280 INFO - Executing: [click: 28 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitysnippet:nth-child(9) span a i]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/28/click)
+11:17:43.366 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/28/click
+11:17:45.379 INFO - Executing: [find element: By.selector: .activitysnippet:nth-child(10) span a i] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:17:45.425 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element
+11:17:45.432 INFO - Executing: [click: 29 [[ChromeDriver: chrome on LINUX (688db3e1f652640713419b64054d6848)] -> css selector: .activitysnippet:nth-child(10) span a i]] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/29/click)
+11:17:45.516 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element/29/click
+11:17:49.530 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9000/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:17:50.559 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:17:55.574 INFO - Executing: [get: http://as.dev.nationalgeographic.com:9000/] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url)
+11:17:56.493 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/url
+11:18:06.516 INFO - Executing: [find element: By.selector: .activitystream-item:nth-child(1) .activitycaption] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9/element)
+11:18:07.719 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element
+  (Session info: chrome=37.0.2062.120)
+  (Driver info: chromedriver=2.10.267517,platform=Linux 3.11.0-24-generic x86) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 86 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.38.0', revision: 'bd32d4e', time: '2013-12-05 16:15:38'
+System info: host: 'leandro-VirtualBox', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'i386', os.version: '3.11.0-24-generic', java.version: '1.7.0_65'
+Session ID: 688db3e1f652640713419b64054d6848
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=/tmp/.com.google.Chrome.2e4gyr}, rotatable=false, locationContextEnabled=true, version=37.0.2062.120, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, nativeEvents=true, webStorageEnabled=true, applicationCacheEnabled=false, takesScreenshot=true}]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:193)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:554)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:307)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:396)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:432)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:299)
+	at sun.reflect.GeneratedMethodAccessor18.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:101)
+	at com.sun.proxy.$Proxy2.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:184)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:47)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:170)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+11:18:07.754 WARN - Exception: no such element
+  (Session info: chrome=37.0.2062.120)
+  (Driver info: chromedriver=2.10.267517,platform=Linux 3.11.0-24-generic x86) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 86 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.38.0', revision: 'bd32d4e', time: '2013-12-05 16:15:38'
+System info: host: 'leandro-VirtualBox', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'i386', os.version: '3.11.0-24-generic', java.version: '1.7.0_65'
+Session ID: 688db3e1f652640713419b64054d6848
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=/tmp/.com.google.Chrome.2e4gyr}, rotatable=false, locationContextEnabled=true, version=37.0.2062.120, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, nativeEvents=true, webStorageEnabled=true, applicationCacheEnabled=false, takesScreenshot=true}]
+11:18:08.168 INFO - Executing: [delete session: 35d465fd-4458-45f7-9e27-803ab1e107f9] at URL: /session/35d465fd-4458-45f7-9e27-803ab1e107f9)
+11:18:09.436 INFO - Done: /session/35d465fd-4458-45f7-9e27-803ab1e107f9
+11:18:09.621 INFO - Shutting down...
+11:18:09.625 INFO - Stopping Acceptor ServerSocket[addr=0.0.0.0/0.0.0.0,localport=4444]

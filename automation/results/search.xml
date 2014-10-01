@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="search"
+             errors="0"
+             failures="0"
+             tests="0">
+  
+  <testsuite errors="0" failures="0" hostname="" id=""
+    name="Bing search from homepage" package="search" skipped="0"
+    tests="0" time="" timestamp="">
+    
+    
+    
+      <system-err>
+        Unexpected identifier
+Unexpected identifier
+      </system-err>
+    
+    </testsuite>
+  
+</testsuites>

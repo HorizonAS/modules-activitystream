@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="verb"
+             errors="0"
+             failures="1"
+             tests="24">
+  
+  <testsuite errors="0" failures="1" hostname="" id=""
+    name="Verb the object and see snipet count updated" package="verb" skipped="18"
+    tests="24" time="" timestamp="">
+    
+    
+      <testcase name="Element &lt;body&gt; was visible after 115 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if the page title equals &quot;modules activitysnippet&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(2) .activitysnippet-count&gt; contains text: &quot;1&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(3) .activitysnippet-count&gt; contains text: &quot;1&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(4) .activitysnippet-count&gt; contains text: &quot;1&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(5) .activitysnippet-count&gt; contains text: &quot;1&quot;.">
+        
+          <failure message="Expected &quot;1&quot; but got: &quot;3&quot;"></failure>
+        
+        
+      </testcase>
+    
+    
+    </testsuite>
+  
+</testsuites>

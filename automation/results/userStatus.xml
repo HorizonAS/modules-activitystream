@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="userStatus"
+             errors="0"
+             failures="0"
+             tests="5">
+  
+  <testsuite errors="0" failures="0" hostname="" id=""
+    name="Toggle user state" package="userStatus" skipped="5"
+    tests="5" time="" timestamp="">
+    
+    
+    
+      <system-err>
+        url is not defined
+Object #&lt;Object&gt; has no method &#39;toggleState&#39;
+Object #&lt;Object&gt; has no method &#39;verifySnippetCount&#39;
+      </system-err>
+    
+    </testsuite>
+  
+</testsuites>

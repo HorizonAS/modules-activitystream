@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="home"
+             errors="0"
+             failures="0"
+             tests="22">
+  
+  <testsuite errors="0" failures="0" hostname="" id=""
+    name="Testing the module" package="home" skipped="0"
+    tests="22" time="" timestamp="">
+    
+    
+      <testcase name="Element &lt;body&gt; was visible after 107 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)&gt; contains text: &quot;Leandro Guelerman&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(2)&gt; contains text: &quot;Matias Montenegro&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(3)&gt; contains text: &quot;mmdb&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .activitycaption-date&gt; contains text: &quot;30 Sep&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .FOLLOWED&gt; is present.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;body&gt; was visible after 274 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if the URL equals &quot;https://members-test3.nationalgeographic.com/731046415557/&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;body&gt; was visible after 107 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)&gt; contains text: &quot;Leandro Guelerman&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(2)&gt; contains text: &quot;Kayapo Courage&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(3)&gt; contains text: &quot;ngm&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .activitycaption-date&gt; contains text: &quot;30 Sep&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .FAVORITED&gt; is present.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;body&gt; was visible after 99 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(1)&gt; contains text: &quot;Leandro Guelerman&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(2)&gt; contains text: &quot;Kayapo Courage&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .caption a:nth-child(3)&gt; contains text: &quot;ngm&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .activitycaption-date&gt; contains text: &quot;30 Sep&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption .WATCHED&gt; is present.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;body&gt; was visible after 86 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitystream-item:nth-child(1) .activitycaption&gt; is not present.">
+        
+        
+          <system-out>
+            
+              [[ATTACHMENT|/home/leandro/ngs-modules-activitystream/modules-activitystream/automation/results/screenshots/ERROR_Tue-Sep-30-2014-012833-GMT-0300.png]]
+            
+          </system-out>
+        
+      </testcase>
+    
+    
+    </testsuite>
+  
+</testsuites>

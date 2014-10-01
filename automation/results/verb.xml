@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="verb"
+             errors="0"
+             failures="0"
+             tests="12">
+  
+  <testsuite errors="0" failures="0" hostname="" id=""
+    name="Verb the object and see snipet count updated" package="verb" skipped="12"
+    tests="12" time="" timestamp="">
+    
+    
+    
+      <system-err>
+        url is not defined
+Object #&lt;Object&gt; has no method &#39;toggleState&#39;
+Object #&lt;Object&gt; has no method &#39;verifySnippetCount&#39;
+      </system-err>
+    
+    </testsuite>
+  
+</testsuites>

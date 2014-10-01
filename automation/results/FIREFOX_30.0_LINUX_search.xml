@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="search"
+             errors="0"
+             failures="0"
+             tests="26">
+  
+  <testsuite errors="0" failures="0" hostname="" id=""
+    name="Bing search from homepage" package="search" skipped="0"
+    tests="26" time="" timestamp="">
+    
+    
+      <testcase name="Element &lt;body&gt; was visible after 98 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if the page title equals &quot;modules activitysnippet&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(2) .activitysnippet-count&gt; contains text: &quot;1&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(3) .activitysnippet-count&gt; contains text: &quot;1&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(4) .activitysnippet-count&gt; contains text: &quot;1&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(5) .activitysnippet-count&gt; contains text: &quot;1&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(6) .activitysnippet-count&gt; contains text: &quot;1&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(7) .activitysnippet-count&gt; contains text: &quot;1&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(2) .activitysnippet-count&gt; contains text: &quot;0&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(3) .activitysnippet-count&gt; contains text: &quot;0&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(4) .activitysnippet-count&gt; contains text: &quot;0&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(5) .activitysnippet-count&gt; contains text: &quot;0&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(6) .activitysnippet-count&gt; contains text: &quot;0&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Testing if element &lt;.activitysnippet:nth-child(7) .activitysnippet-count&gt; contains text: &quot;0&quot;.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(2) .activitysnippet-icon--inactive&gt; was visible after 38 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(3) .activitysnippet-icon--inactive&gt; was visible after 40 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(4) .activitysnippet-icon--inactive&gt; was visible after 39 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(5) .activitysnippet-icon--inactive&gt; was visible after 41 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(6) .activitysnippet-icon--inactive&gt; was visible after 38 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(7) .activitysnippet-icon--inactive&gt; was visible after 37 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(2) span a i&gt; was visible after 50 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(3) span a i&gt; was visible after 37 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(4) span a i&gt; was visible after 39 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(5) span a i&gt; was visible after 42 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(6) span a i&gt; was visible after 45 milliseconds.">
+        
+        
+      </testcase>
+    
+      <testcase name="Element &lt;.activitysnippet:nth-child(7) span a i&gt; was visible after 41 milliseconds.">
+        
+        
+      </testcase>
+    
+    
+    </testsuite>
+  
+</testsuites>
