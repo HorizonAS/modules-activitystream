@@ -39,7 +39,10 @@ require [
     'modules/helpers'
     'modules/storage'
 ], (Backbone, ActivityStreamModule, helpers, storage) ->
-    Backbone.history.start()
+
+    if Backbone.History.started is false
+        console.log(Backbone.History.started)
+        Backbone.history.start()
     
     if typeof _TEST_MODE is "undefined" # not sure what this is
         # Not in test mode, initiate the module

@@ -17,6 +17,7 @@
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/handlebars/handlebars.js"></script>
         <script src="bower_components/jquery/jquery.js"></script>
+        <!-- Currently just testing the data-cover property -->
         <script src="bower_components/backbone/backbone.js"></script>
         <script src="lib/socket.io.js"></script>
         <script src="lib/sails.io.js"></script>
@@ -29,19 +30,11 @@
         </script>
 
         <!-- code coverage -->
-        <script type="text/javascript" src="lib/blanket.min.js"></script>
-        <script type="text/javascript" src="grunt-blanket-mocha/support/mocha-blanket.js"></script>
+        <script type="text/javascript" src="lib/blanket.min.js" data-cover-flags="debug branchTracking"
+            data-cover-only="//.*/" data-cover-never="['bower_components/','lib/']">
+        </script>  
+        <script type="text/javascript" src="grunt-blanket-mocha/support/mocha-blanket.js"></script> 
 
-
-        <script>
-            if (navigator.userAgent.indexOf('PhantomJS') < 0) {
-               mocha
-               // .globals(['Wombat', 'Apple']) // acceptable globals
-               .run();
-            }
-        </script>
-
-        <script type="text/javascript" src="../node_modules/grunt-blanket-mocha/support/mocha-blanket.js"></script>
         
         <!-- Javascript Application Libraries -->
         <script src="spec/utils.js"></script>
@@ -61,7 +54,13 @@
         <div id="JS_activitycontainer"></div>
         <div id="mocha"></div>
         
-        <script>mocha.run();</script>
+        <script> 
+        if (window.PHANTOMJS) {
+            console.log('hellos there');
+            blanket.options("reporter", "grunt-blanket-mocha/support/grunt-reporter.js");
+        }
+        </script>
+        
     </body>
 </html>
 

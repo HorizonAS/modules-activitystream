@@ -13,6 +13,12 @@ var mountFolder = function (connect, dir) {
 // 'test/spec/**/*.js'
 // templateFramework: 'handlebars'
 
+
+
+process.on('uncaughtException', function(err) {
+    console.log('This is the err', err);
+});
+
 module.exports = function (grunt) {
     // show elapsed time at the end
     require('time-grunt')(grunt);
@@ -87,9 +93,9 @@ module.exports = function (grunt) {
                     port: 9001,
                     middleware: function (connect) {
                         return [
-                            lrSnippet,
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, 'test'),
+                            mountFolder(connect, 'node_modules'),
                             mountFolder(connect, yeomanConfig.app)
                         ];
                     }
@@ -148,7 +154,7 @@ module.exports = function (grunt) {
                 log: true,
                 logErrors: true,
                 bail: false,
-                threshold: 80
+                threshold: 50,
             },
             ci: {
                 options: {
@@ -412,6 +418,7 @@ module.exports = function (grunt) {
             grunt.task.run([
                 'connect:test',
                 'coverage:ci'
+                //'watch'
             ]);
         }
     });
