@@ -27,19 +27,14 @@
             var expect = chai.expect;
             var assert = chai.assert;
             mocha.setup('bdd');
-        </script>
+        </script> 
 
-        <!-- code coverage -->
-        <script type="text/javascript" src="lib/blanket.min.js" data-cover-flags="debug branchTracking"
-            data-cover-only="//.*/" data-cover-never="['bower_components/','lib/']">
-        </script>  
-        <script type="text/javascript" src="grunt-blanket-mocha/support/mocha-blanket.js"></script> 
 
-        
         <!-- Javascript Application Libraries -->
         <script src="spec/utils.js"></script>
-        <script data-main="scripts/main.js" src="bower_components/requirejs/require.js"></script>       
-        
+        <script data-main="scripts/main.js" src="bower_components/requirejs/require.js"></script>
+
+
         <!-- Unit Tests -->
         <script src="spec/unit/collections.js"></script>
         <script src="spec/unit/models.js"></script>
@@ -53,11 +48,25 @@
     <body>
         <div id="JS_activitycontainer"></div>
         <div id="mocha"></div>
+
+
+        <!-- code coverage -->
+        <script type="text/javascript" src="lib/blanket.min.js" data-cover-flags="debug"
+        data-cover-only="['scripts/']" data-cover-never="['/lib/', 'bower_components/']"
+        </script>
+
+        <script type="text/javascript" src="grunt-blanket-mocha/support/mocha-blanket.js"></script>
+
         
         <script> 
         if (window.PHANTOMJS) {
             console.log('hellos there');
             blanket.options("reporter", "grunt-blanket-mocha/support/grunt-reporter.js");
+
+            //Race Condiion HERE
+            setTimeout(function() {
+                mocha.run();
+            }, 2000);
         }
         </script>
         

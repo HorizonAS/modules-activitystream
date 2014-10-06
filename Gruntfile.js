@@ -154,7 +154,7 @@ module.exports = function (grunt) {
                 log: true,
                 logErrors: true,
                 bail: false,
-                threshold: 50,
+                threshold: 5,
             },
             ci: {
                 options: {
