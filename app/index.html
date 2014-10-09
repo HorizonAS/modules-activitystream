@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css(.tmp) styles/css/main.css -->
+        <!-- build:css(.tmp) styles/css/activitystream.css -->
         <link rel="stylesheet" href="styles/css/main.css">
         <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
         <!-- endbuild -->
@@ -28,8 +28,27 @@
 
         <div id="JS_activitycontainer"></div>
 
-        <!-- build:js scripts/main.js -->
-        <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+        <!-- build:js scripts/activitystream.js -->
+        <script data-main="scripts/config" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
+
+        <script type="text/javascript">
+            requirejs.config({
+                paths: {
+                    ActivityStream: 'main'
+                }
+            });
+
+            require(["ActivityStream"], function(AS){
+                var user = {
+                    activityStreamServiceAPI: 'http://as.dev.nationalgeographic.com:9365/',
+                    user: {
+                        type: 'db_user',
+                        id: 1
+                    }
+                }
+                AS.ready(user)
+            });
+        </script>
 </body>
 </html>

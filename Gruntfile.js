@@ -182,7 +182,8 @@ module.exports = function (grunt) {
                         'views': '../../.tmp/scripts/views',
                         'collections': '../../.tmp/scripts/collections',
                         'modules': '../../.tmp/scripts/modules',
-                        'localconfig': '../../.tmp/scripts/localconfig'
+                        'localconfig': '../../.tmp/scripts/localconfig',
+                        'ActivityStream': '../../.tmp/scripts/main'
                     },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30

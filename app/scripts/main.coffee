@@ -1,60 +1,24 @@
 #/*global require*/
+# This file is used by grunt-requirejs to generate the build file with all the modules
 
 'use strict'
 
-# Main RequireJS properties loaded on init:
-require.config
-    shim:
-        underscore:
-            exports: '_'
-        backbone:
-            deps: [
-                'underscore'
-                'jquery'
-            ]
-            exports: 'Backbone'
-        handlebars:
-            exports: 'Handlebars'
-        sailsio:
-            deps: [
-                'io'
-            ]
-            exports: 'io'
-    paths:
-        jquery: '../bower_components/jquery/jquery'
-        backbone: '../bower_components/backbone/backbone'
-        underscore: '../bower_components/underscore/underscore'
-        handlebars: '../bower_components/handlebars/handlebars'
-        io: '../bower_components/socket.io-client/dist/socket.io'
-        sailsio: '/scripts/vendor/sails.io/sails.io'
-        models: '/scripts/models'
-        views: '/scripts/views'
-        collections: '/scripts/collections'
-        modules: '/scripts/modules',
-        localconfig: '/scripts/localconfig'
-
-require [
+define 'ActivityStream', [
     'backbone'
     'modules/activityStream'
     'modules/helpers'
     'modules/storage'
 ], (Backbone, ActivityStreamModule, helpers, storage) ->
     Backbone.history.start()
-    
+
     if typeof _TEST_MODE is "undefined" # not sure what this is
         # Not in test mode, initiate the module
-        window.AS = new ActivityStreamModule()
+        AS = new ActivityStreamModule()
+        return AS
 
         # settings that an implementing site
         # would use to instantiate the module
 
-        testUserObj =
-            user:
-                type: 'mmdb_user'
-                id: '9734900'
-
-        window.AS.ready(testUserObj)
-        
         # Different socket events will probably have to be handled
         # in a module that gets instantiated here
         # socket.on "message", messageReceived = (message) ->

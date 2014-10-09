@@ -23,11 +23,14 @@ define [
           # gets transformed into an object that can be represented by modules-activitystream
           # Format: module_activity_stream_attribute: your_app_attribute
           map:
-            displayName: function(data) {return "Dr. " + data['title'];},
+            displayName: (data) -> "Dr. #{ data['title'] }"
             id: 'id',
-            url: function(data) {return "//example.com/" + data['slug'];},
-            imageMedium: { avatar: { url: 'medium' } }
+            url: (data) -> "//example.com#{ data['slug'] }"
+            imageMedium: (data) -> "//example.com#{ data['image_url'] }"
 
 
         #your_object_name_2:
         #  ...
+
+    # Enable/disable Following data
+    enableFollowingData: false

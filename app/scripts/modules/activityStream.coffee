@@ -21,10 +21,13 @@ define [
 
         ready: (options) ->
             @user = new User(options.user)
+            if options.activityStreamServiceAPI
+                options.baseUrl = options.activityStreamServiceAPI + 'api/v1/'
+            config.overwrite(options)
             @init()
 
         init: () ->
-            @setAuth config.activityStreamServiceAPI + 'api/v1', @user
+            @setAuth config.get('activityStreamServiceAPI') + 'api/v1', @user
 
 
         setAuth: (url, user) ->
@@ -52,7 +55,7 @@ define [
                     @stream.error("Error: " + textStatus )
 
         createSocket: () ->
-            @socket = io.connect(config.activityStreamServiceAPI)
+            @socket = io.connect(config.get('activityStreamServiceAPI'))
             @socket.on 'connect', =>
                 @socketStart()
 
@@ -62,11 +65,13 @@ define [
                 if data.status == 404 then throw new Error(data.status)
                 _.each data, (o) =>
                     if o.items then _.each o.items, @stream.addActivity
-                    else console.log 'User has no items'
-            @socket.get @user.getFollowing(), (data) =>
-                if data.status == 404 then throw new Error(data.status)
-                _.each data, (o) =>
-                    if o.items then _.each o.items, @stream.addActivity
+                    else console.log 'User\'s followed, have no items'
+
+
+            if config.get('enableFollowingData')
+                @socket.get @user.getFollowing(), (data) =>
+                    if data.status == 404 then throw new Error(data.status)
+                    if data.length > 0 then _.each data, @stream.addActivity
                     else console.log 'User\'s followed, have no items'
 
             # Important for this to happen after the GET request

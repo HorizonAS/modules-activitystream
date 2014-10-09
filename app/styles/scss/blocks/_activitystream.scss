@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
+    min-width: 16em;
 
     @include e(item) {
         box-sizing: border-box;

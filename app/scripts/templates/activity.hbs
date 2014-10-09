@@ -1,5 +1,5 @@
 <div class="activityitem">
-    <div class="activityitem-social activitysocial social">
+    <!--<div class="activityitem-social activitysocial social">
         <span class="activitysocial-item">
             <a href="#"><i class="activitysocial-icon fa fa-heart"></i></a><span>{{object.countsFavorites}}</span>
         </span>
@@ -8,8 +8,9 @@
             <a href="{{object.url}}"><i class="activitysocial-icon fa fa-comment"></i></a><span class="">{{object.countsComments}}</span>
         </span>
     </div>
+    -->
 
-    <a href="{{ object.url }}"><img src="{{object.imageMedium}}" class="activityitem-image"></a>
+    <a href="{{ object.url }}"><div style="background-image: url('{{object.imageMedium}}')" class="activityitem-image"></div>
 
     <div class="activitycaption">
         <div class="{{verb.type}} activitycaption-badge"></div>
