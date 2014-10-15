@@ -14,7 +14,6 @@ define [
 			for i of args
 				for own key, val of args[i]
 					@conf[key] = val
-			window.xxx = @conf
 
 		get: (attr) ->
 			@conf[attr] if @conf[attr]?
