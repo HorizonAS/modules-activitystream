@@ -27,6 +27,10 @@ define [
 						args[0][key] = val
 					else if args[0][key]? and typeof val isnt 'object'
 						continue
+					else if not args[0][key]? and val instanceof Array
+						args[0][key] = val
+					else if args[0][key]? and val instanceof Array
+						continue
 					else
 						args[0][key] = {} unless args[0][key]?
 						args[0][key] = @extend args[0][key], val
@@ -34,5 +38,6 @@ define [
 
 		defaults:
 			baseUrl: 'as.dev.nationalgeographic.com:9365/api/v1/'
+			filters: []
 
 	return new Config()

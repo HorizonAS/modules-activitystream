@@ -61,7 +61,14 @@ define [
 
         socketStart: () =>
             @stream.ready()
-            @socket.get @user.getAll(), (data) =>
+
+            filters = config.get('filters')
+            url = switch filters.length
+                when 0 then @user.getAll()
+                when 1 then @user.getAllVerb(filters[0])
+                when 2 then @user.getAllVerbObject(filters[0], filters[1])
+
+            @socket.get url, (data) =>
                 if data.status == 404 then throw new Error(data.status)
                 _.each data, (o) =>
                     if o.items then _.each o.items, @stream.addActivity

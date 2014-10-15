@@ -42,6 +42,7 @@
             require(["ActivityStream"], function(AS){
                 var user = {
                     activityStreamServiceAPI: 'http://as.dev.nationalgeographic.com:9365/',
+                    filters: ['FAVORITED', 'cms_article'],
                     user: {
                         type: 'db_user',
                         id: 1
