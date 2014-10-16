@@ -59,6 +59,19 @@ define [
             @socket.on 'connect', =>
                 @socketStart()
 
+        matchActivity: (message) =>
+            filters = config.get('filters')
+            switch filters.length
+                when 0
+                    @user.id.toString() == message.actor.data.aid
+                when 1
+                    verb = filters[0]
+                    @user.id.toString() == message.actor.data.aid and verb == message.verb.type
+                when 2
+                    verb = filters[0]
+                    objectType = filters[1]
+                    @user.id.toString() == message.actor.data.aid and verb == message.verb.type and objectType == message.object.data.type
+
         socketStart: () =>
             @stream.ready()
 
@@ -86,4 +99,5 @@ define [
             @socket.post '/api/v1/subscribe', { user: @user.id }
 
             @socket.on 'message', messageReceived = (message) =>
-                @activity.parseMessage(message.data.data, message.verb)
+                if @matchActivity(message.data.data)
+                    @activity.parseMessage(message.data.data, message.verb)
