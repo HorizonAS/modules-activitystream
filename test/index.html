@@ -27,11 +27,11 @@
             var assert = chai.assert;
             mocha.setup('bdd');
         </script>
-        
+
         <!-- Javascript Application Libraries -->
         <script src="spec/utils.js"></script>
-        <script data-main="scripts/main.js" src="bower_components/requirejs/require.js"></script>       
-        
+        <script data-main="scripts/config.js" src="bower_components/requirejs/require.js"></script>
+
         <!-- Unit Tests -->
         <script src="spec/unit/collections.js"></script>
         <script src="spec/unit/models.js"></script>
@@ -45,7 +45,7 @@
     <body>
         <div id="JS_activitycontainer"></div>
         <div id="mocha"></div>
-        
+
         <script>mocha.run();</script>
     </body>
 </html>
