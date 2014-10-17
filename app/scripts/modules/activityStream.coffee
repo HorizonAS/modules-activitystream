@@ -60,7 +60,7 @@ define [
                 @socketStart()
 
         matchActivity: (message) =>
-            filters = config.get('filters')
+            filters = config.get 'filters'
             switch filters.length
                 when 0
                     @user.id.toString() == message.actor.data.aid
