@@ -22,6 +22,7 @@
             Mapper = clone(_Mapper)
             done()
 
+
     describe "App.Modules Unit Tests", ->
         describe "Activity Module", ->
             it "Can create a new instance of an Activity module", (done) ->
@@ -34,6 +35,170 @@
                 @activityStream = new ActivityStreamModule()
                 expect(@activityStream).to.be.ok
                 expect(@activityStream).to.be.an("object")
+                done()
+
+            it "Match activities activities of the user", (done) ->
+                config =
+                    user:
+                        type: 'mmdb_user',
+                        id: 1
+
+                @activityStream = new ActivityStreamModule()
+                @activityStream.ready(config)
+                expect(@activityStream).to.be.ok
+                message =
+                    "actor":
+                        "id":"6635",
+                        "data":
+                            "api":"http://localhost/user/1",
+                            "aid":"1","type":"db_user"
+                    "verb":
+                        "type":"FAVORITED"
+                    "object":
+                        "data":
+                            "api":"//otherpage/api/v1/article/1/",
+                            "aid":"1",
+                            "type":"cms_article"
+
+                expect(@activityStream.matchActivity(message)).to.be.ok
+                done()
+
+            it "Ignore activities of other users", (done) ->
+                config =
+                    user:
+                        type: 'mmdb_user',
+                        id: 1
+
+                @activityStream = new ActivityStreamModule()
+                @activityStream.ready(config)
+                expect(@activityStream).to.be.ok
+                message =
+                    "actor":
+                        "id":"6635",
+                        "data":
+                            "api":"http://localhost/user/2",
+                            "aid":"2",
+                            "type":"db_user"
+                    "verb":
+                        "type":"FAVORITED"
+                    "object":
+                        "data":
+                            "api":"//otherpage/api/v1/article/1/",
+                            "aid":"1",
+                            "type":"cms_article"
+
+
+                expect(@activityStream.matchActivity(message)).not.to.be.ok
+                done()
+
+            it "Match activities activities of the same user and same verb", (done) ->
+                config =
+                    filters: ['FAVORITED']
+                    user:
+                        type: 'mmdb_user',
+                        id: 1
+
+                @activityStream = new ActivityStreamModule()
+                @activityStream.ready(config)
+                expect(@activityStream).to.be.ok
+                message =
+                    "actor":
+                        "data":
+                            "api":"http://localhost/user/1",
+                            "aid":"1",
+                            "type":"db_user"
+                    "verb":
+                        "type":"FAVORITED"
+                    "object":
+                        "data":
+                            "api":"//otherpage/api/v1/article/1/",
+                            "aid":"1",
+                            "type":"cms_article"
+
+                expect(@activityStream.matchActivity(message)).to.be.ok
+                done()
+
+            it "Ignore activities of same user but a different verb", (done) ->
+                config =
+                    filters: ['FAVORITED']
+                    user:
+                        type: 'mmdb_user',
+                        id: 1
+
+                @activityStream = new ActivityStreamModule()
+                @activityStream.ready(config)
+                expect(@activityStream).to.be.ok
+                message =
+                    "actor":
+                        "data":
+                            "api":"http://localhost/user/1",
+                            "aid":"1",
+                            "type":"db_user"
+                    "verb":
+                        "type":"FOLLOWED"
+                    "object":
+                        "data":
+                            "api":"http://localhost/user/2",
+                            "aid":"2",
+                            "type":"db_user"
+
+
+                expect(@activityStream.matchActivity(message)).not.to.be.ok
+                done()
+
+
+            it "Match activities activities of the same user, verb and object type", (done) ->
+                config =
+                    filters: ['FAVORITED', 'cms_article']
+                    user:
+                        type: 'mmdb_user',
+                        id: 1
+
+                @activityStream = new ActivityStreamModule()
+                @activityStream.ready(config)
+                expect(@activityStream).to.be.ok
+                message =
+                    "actor":
+                        "data":
+                            "api":"http://localhost/user/1",
+                            "aid":"1",
+                            "type":"db_user"
+                    "verb":
+                        "type":"FAVORITED"
+                    "object":
+                        "data":
+                            "api":"//otherpage/api/v1/article/1/",
+                            "aid":"1",
+                            "type":"cms_article"
+
+                expect(@activityStream.matchActivity(message)).to.be.ok
+                done()
+
+            it "Ignore activities of same user and verb, but different type of object", (done) ->
+                config =
+                    filters: ['FAVORITED', 'cms_article']
+                    user:
+                        type: 'mmdb_user',
+                        id: 1
+
+                @activityStream = new ActivityStreamModule()
+                @activityStream.ready(config)
+                expect(@activityStream).to.be.ok
+                message =
+                    "actor":
+                        "data":
+                            "api":"http://localhost/user/1",
+                            "aid":"1",
+                            "type":"db_user"
+                    "verb":
+                        "type":"FAVORITED"
+                    "object":
+                        "data":
+                            "api":"http://localhost/blog/2",
+                            "aid":"2",
+                            "type":"blog_post"
+
+                expect(@activityStream.matchActivity(message)).not.to.be.ok
                 done()
 
         describe "Logger Module", ->
