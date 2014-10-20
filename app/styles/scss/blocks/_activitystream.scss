@@ -7,8 +7,8 @@
     @include e(item) {
         box-sizing: border-box;
         width: 100%;
-        float: left;
         padding: 0 .25em;
+        display: inline-block;
 
         @for $i from 2 to 10 {
             @media screen and (min-width: $i * 15em) {
