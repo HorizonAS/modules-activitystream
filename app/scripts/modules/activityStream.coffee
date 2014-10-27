@@ -5,10 +5,12 @@ define [
     'sailsio'
     'modules/config'
     'modules/logger'
+    'modules/routing'
+    'modules/filterManager'
     'modules/activity'
     'views/stream'
     'modules/user',
-], (Backbone, $, _, io, config, Logger, Activity, StreamView, User) ->
+], (Backbone, $, _, io, config, Logger, Routing, FilterManager, Activity, StreamView, User) ->
 
     'use strict'
 
@@ -18,12 +20,16 @@ define [
             @logger = new Logger() # Base Init that loads our other modules
             @stream = new StreamView() # Stream Module Init
             @activity = new Activity(@stream) # Activity Module Init
+            @routing = new Routing()
+            window.r = @routing
 
         ready: (options) ->
             @user = new User(options.user)
             if options.activityStreamServiceAPI
                 options.baseUrl = options.activityStreamServiceAPI + 'api/v1/'
             config.overwrite(options)
+            @filterManager = new FilterManager(options.filters)
+            @filterManager.setFilter('actor', [@user.type, @user.id])
             @init()
 
         init: () ->
@@ -59,37 +65,28 @@ define [
             @socket.on 'connect', =>
                 @socketStart()
 
-        matchActivity: (message) =>
-            filters = config.get 'filters'
-            switch filters.length
-                when 0
-                    @user.id.toString() == message.actor.data.aid
-                when 1
-                    verb = filters[0]
-                    @user.id.toString() == message.actor.data.aid and verb == message.verb.type
-                when 2
-                    verb = filters[0]
-                    objectType = filters[1]
-                    @user.id.toString() == message.actor.data.aid and verb == message.verb.type and objectType == message.object.data.type
-
         socketStart: () =>
+            self = this
             @stream.ready()
 
             filters = config.get('filters')
-            url = switch filters.length
-                when 0 then @user.getAll()
-                when 1 then @user.getAllVerb(filters[0])
-                when 2 then @user.getAllVerbObject(filters[0], filters[1])
+            urlContext = @filterManager.getFiltersForUrl()
+            url = @routing.urlForContext urlContext
 
             @socket.get url, (data) =>
+
                 if data.status == 404 then throw new Error(data.status)
                 _.each data, (o) =>
-                    if o.items then _.each o.items, @stream.addActivity
-                    else console.log 'User\'s followed, have no items'
+                        if o.items
+                          _.each o.items, (b) =>
+                               if self.filterManager.matchActivity(b)
+                                    @stream.addActivity(b)
+                        else console.log 'User\'s followed, have no items'
 
 
             if config.get('enableFollowingData')
-                @socket.get @user.getFollowing(), (data) =>
+                url = @routing.get 'following', urlContext
+                @socket.get url, (data) =>
                     if data.status == 404 then throw new Error(data.status)
                     if data.length > 0 then _.each data, @stream.addActivity
                     else console.log 'User\'s followed, have no items'
