@@ -18,6 +18,10 @@ define [
             @collection = new StreamCollection
             @collection.bind 'add', @appendActivity
             @collection.bind 'sort', @sortActivities
+            @collection.on 'reset', (col, opts) =>
+                _.each opts.previousModels, (model) =>
+                    model.trigger('remove');
+
 
             window.collection = @collection
 
@@ -40,6 +44,10 @@ define [
             $.when(activityModel.dfd).then($.proxy( () ->
                 @collection.add activityModel
             , @))
+
+        clearActivities: () ->
+            @collection.reset()
+            $(@el).find('#JS_activitystream .activitystream-item').remove()
 
         appendActivity: (activity) ->
             activity_view = new ActivityView model: activity, className: 'activitystream-item ' + activity.cid

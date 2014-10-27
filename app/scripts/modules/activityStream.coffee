@@ -28,12 +28,19 @@ define [
             if options.activityStreamServiceAPI
                 options.baseUrl = options.activityStreamServiceAPI + 'api/v1/'
             config.overwrite(options)
-            @filterManager = new FilterManager(options.filters)
-            @filterManager.setFilter('actor', [@user.type, @user.id])
+
+            # if filters are not set, it uses the current user
+            filters = if options.filters then options.filters else {'actor': "#{@user.type}/#{@user.id}"}
+            @filterManager = new FilterManager(filters)
             @init()
 
         init: () ->
-            @setAuth config.get('activityStreamServiceAPI') + 'api/v1', @user
+            if @socket? and @socket.socket.connected
+                # If the socket already exist it clears the stream and load the activites again
+                @stream.clearActivities()
+                @socketStart()
+            else
+                @setAuth config.get('activityStreamServiceAPI') + 'api/v1', @user
 
 
         setAuth: (url, user) ->
@@ -69,20 +76,14 @@ define [
             self = this
             @stream.ready()
 
-            filters = config.get('filters')
             urlContext = @filterManager.getFiltersForUrl()
             url = @routing.urlForContext urlContext
 
             @socket.get url, (data) =>
-
                 if data.status == 404 then throw new Error(data.status)
                 _.each data, (o) =>
-                        if o.items
-                          _.each o.items, (b) =>
-                               if self.filterManager.matchActivity(b)
-                                    @stream.addActivity(b)
+                        if o.items then _.each o.items, @stream.addActivity
                         else console.log 'User\'s followed, have no items'
-
 
             if config.get('enableFollowingData')
                 url = @routing.get 'following', urlContext

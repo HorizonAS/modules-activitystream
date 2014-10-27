@@ -33,6 +33,11 @@ define [
             # {@id} = user id
             'following': 'proxy/{actor_type}/{actor_id}/'
 
+            # Gets a list of all activites for a given user
+            # {@type} = user type (i.e. mmdb_user, etc.)
+            # {@id} = MMDB user id
+            'followers_all': 'object/{object_type}/{object_aid}/activities'
+
 
         # Given a route's name and context, returns the complete url
         get: (name, ctx) ->
