@@ -6,6 +6,8 @@
     Logger = undefined
     User = undefined
     Mapper = undefined
+    FilterManager = undefined
+    Routing = undefined
 
     before (done) ->
         require [
@@ -14,12 +16,16 @@
             "modules/logger",
             "modules/user"
             "modules/mapper"
-        ],(_Activity, _ActivityStreamModule, _Logger, _User, _Mapper) ->
+            "modules/filterManager"
+            "modules/routing"
+        ],(_Activity, _ActivityStreamModule, _Logger, _User, _Mapper, _FilterManager, _Routing) ->
             Activity = clone(_Activity)
             ActivityStreamModule = clone(_ActivityStreamModule)
             Logger = clone(_Logger)
             User = clone(_User)
             Mapper = clone(_Mapper)
+            FilterManager = clone(_FilterManager)
+            Routing = clone(_Routing)
             done()
 
 
@@ -37,153 +43,12 @@
                 expect(@activityStream).to.be.an("object")
                 done()
 
-            it "Match activities activities of the user", (done) ->
+        describe "FiltersManager Module", ->
+
+            it "Match activities of the actor", (done) ->
                 config =
-                    user:
-                        type: 'mmdb_user',
-                        id: 1
+                    actor: 'db_user/1'
 
-                @activityStream = new ActivityStreamModule()
-                @activityStream.ready(config)
-                expect(@activityStream).to.be.ok
-                message =
-                    "actor":
-                        "id":"6635",
-                        "data":
-                            "api":"http://localhost/user/1",
-                            "aid":"1","type":"db_user"
-                    "verb":
-                        "type":"FAVORITED"
-                    "object":
-                        "data":
-                            "api":"//otherpage/api/v1/article/1/",
-                            "aid":"1",
-                            "type":"cms_article"
-
-                expect(@activityStream.matchActivity(message)).to.be.ok
-                done()
-
-            it "Ignore activities of other users", (done) ->
-                config =
-                    user:
-                        type: 'mmdb_user',
-                        id: 1
-
-                @activityStream = new ActivityStreamModule()
-                @activityStream.ready(config)
-                expect(@activityStream).to.be.ok
-                message =
-                    "actor":
-                        "id":"6635",
-                        "data":
-                            "api":"http://localhost/user/2",
-                            "aid":"2",
-                            "type":"db_user"
-                    "verb":
-                        "type":"FAVORITED"
-                    "object":
-                        "data":
-                            "api":"//otherpage/api/v1/article/1/",
-                            "aid":"1",
-                            "type":"cms_article"
-
-
-                expect(@activityStream.matchActivity(message)).not.to.be.ok
-                done()
-
-            it "Match activities activities of the same user and same verb", (done) ->
-                config =
-                    filters: ['FAVORITED']
-                    user:
-                        type: 'mmdb_user',
-                        id: 1
-
-                @activityStream = new ActivityStreamModule()
-                @activityStream.ready(config)
-                expect(@activityStream).to.be.ok
-                message =
-                    "actor":
-                        "data":
-                            "api":"http://localhost/user/1",
-                            "aid":"1",
-                            "type":"db_user"
-                    "verb":
-                        "type":"FAVORITED"
-                    "object":
-                        "data":
-                            "api":"//otherpage/api/v1/article/1/",
-                            "aid":"1",
-                            "type":"cms_article"
-
-                expect(@activityStream.matchActivity(message)).to.be.ok
-                done()
-
-            it "Ignore activities of same user but a different verb", (done) ->
-                config =
-                    filters: ['FAVORITED']
-                    user:
-                        type: 'mmdb_user',
-                        id: 1
-
-                @activityStream = new ActivityStreamModule()
-                @activityStream.ready(config)
-                expect(@activityStream).to.be.ok
-                message =
-                    "actor":
-                        "data":
-                            "api":"http://localhost/user/1",
-                            "aid":"1",
-                            "type":"db_user"
-                    "verb":
-                        "type":"FOLLOWED"
-                    "object":
-                        "data":
-                            "api":"http://localhost/user/2",
-                            "aid":"2",
-                            "type":"db_user"
-
-
-                expect(@activityStream.matchActivity(message)).not.to.be.ok
-                done()
-
-
-            it "Match activities activities of the same user, verb and object type", (done) ->
-                config =
-                    filters: ['FAVORITED', 'cms_article']
-                    user:
-                        type: 'mmdb_user',
-                        id: 1
-
-                @activityStream = new ActivityStreamModule()
-                @activityStream.ready(config)
-                expect(@activityStream).to.be.ok
-                message =
-                    "actor":
-                        "data":
-                            "api":"http://localhost/user/1",
-                            "aid":"1",
-                            "type":"db_user"
-                    "verb":
-                        "type":"FAVORITED"
-                    "object":
-                        "data":
-                            "api":"//otherpage/api/v1/article/1/",
-                            "aid":"1",
-                            "type":"cms_article"
-
-                expect(@activityStream.matchActivity(message)).to.be.ok
-                done()
-
-            it "Ignore activities of same user and verb, but different type of object", (done) ->
-                config =
-                    filters: ['FAVORITED', 'cms_article']
-                    user:
-                        type: 'mmdb_user',
-                        id: 1
-
-                @activityStream = new ActivityStreamModule()
-                @activityStream.ready(config)
-                expect(@activityStream).to.be.ok
                 message =
                     "actor":
                         "data":
@@ -198,8 +63,64 @@
                             "aid":"2",
                             "type":"blog_post"
 
-                expect(@activityStream.matchActivity(message)).not.to.be.ok
+                @filterManager = new FilterManager()
+                @filterManager.addFilters(config)
+                expect(@filterManager.matchActivity(message)).to.be.ok
                 done()
+
+            it "Ignore activities of other actor", (done) ->
+                config =
+                    actor: 'db_user/1'
+
+                message =
+                    "actor":
+                        "data":
+                            "api":"http://localhost/user/1",
+                            "aid":"2",
+                            "type":"db_user"
+                    "verb":
+                        "type":"FAVORITED"
+                    "object":
+                        "data":
+                            "api":"http://localhost/blog/2",
+                            "aid":"2",
+                            "type":"blog_post"
+
+                @filterManager = new FilterManager()
+                @filterManager.addFilters(config)
+                expect(@filterManager.matchActivity(message)).to.be.not.ok
+                done()
+
+
+        describe "Routing Module", ->
+            describe 'Given actor_type=db_user and actor_aid=1', () ->
+                it 'returns /actor/db_user/1/activities', (done) ->
+                    @routing = new Routing()
+                    url = @routing.urlForContext({actor_aid: 1, actor_type: 'db_user'})
+                    expect(url).to.be.contain('/actor/db_user/1/activities')
+                    done()
+
+
+            describe 'Given object_type=db_user and object_aid=1', () ->
+                it 'returns /object/db_user/1/activities', (done) ->
+                    @routing = new Routing()
+                    url = @routing.urlForContext({object_aid: 1, object_type: 'db_user'})
+                    expect(url).to.be.contain('/object/db_user/1/activities')
+                    done()
+
+            describe 'Given actor_type=db_user, actor_aid=1 and verb_type=FOLLOWING', () ->
+                it 'returns /actor/db_user/1/FOLLOWING', (done) ->
+                    @routing = new Routing()
+                    url = @routing.urlForContext({actor_aid: 1, actor_type: 'db_user', verb_type: 'FOLLOWING'})
+                    expect(url).to.be.contain('/actor/db_user/1/FOLLOWING')
+                    done()
+
+            describe 'Given object_type=db_user, object_aid=1, verb_type=FOLLOWING and object_type=blog_article', () ->
+                it 'returns /actor/db_user/1/FOLLOWING/blog_article', (done) ->
+                    @routing = new Routing()
+                    url = @routing.urlForContext({actor_aid: 1, actor_type: 'db_user', verb_type: 'FOLLOWING', object_type: 'blog_article'})
+                    expect(url).to.be.contain('/actor/db_user/1/FOLLOWING/blog_article')
+                    done()
 
         describe "Logger Module", ->
             it "Can create a new instance of a Logger module", (done) ->

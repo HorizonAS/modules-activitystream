@@ -5,10 +5,12 @@ define [
     'sailsio'
     'modules/config'
     'modules/logger'
+    'modules/routing'
+    'modules/filterManager'
     'modules/activity'
     'views/stream'
     'modules/user',
-], (Backbone, $, _, io, config, Logger, Activity, StreamView, User) ->
+], (Backbone, $, _, io, config, Logger, Routing, FilterManager, Activity, StreamView, User) ->
 
     'use strict'
 
@@ -18,16 +20,27 @@ define [
             @logger = new Logger() # Base Init that loads our other modules
             @stream = new StreamView() # Stream Module Init
             @activity = new Activity(@stream) # Activity Module Init
+            @routing = new Routing()
+            @filterManager = new FilterManager()
 
         ready: (options) ->
             @user = new User(options.user)
             if options.activityStreamServiceAPI
                 options.baseUrl = options.activityStreamServiceAPI + 'api/v1/'
             config.overwrite(options)
+
+            # if filters are not set, it uses the current user
+            filters = if options.filters then options.filters else {'actor': "#{@user.type}/#{@user.id}"}
+            @filterManager.changeFilters(filters)
             @init()
 
         init: () ->
-            @setAuth config.get('activityStreamServiceAPI') + 'api/v1', @user
+            if @socket? and @socket.socket.connected
+                # If the socket already exist it clears the stream and load the activites again
+                @stream.clearActivities()
+                @loadActivities()
+            else
+                @setAuth config.get('activityStreamServiceAPI') + 'api/v1', @user
 
 
         setAuth: (url, user) ->
@@ -59,27 +72,22 @@ define [
             @socket.on 'connect', =>
                 @socketStart()
 
-        matchActivity: (message) =>
-            filters = config.get 'filters'
-            switch filters.length
-                when 0
-                    @user.id.toString() == message.actor.data.aid
-                when 1
-                    verb = filters[0]
-                    @user.id.toString() == message.actor.data.aid and verb == message.verb.type
-                when 2
-                    verb = filters[0]
-                    objectType = filters[1]
-                    @user.id.toString() == message.actor.data.aid and verb == message.verb.type and objectType == message.object.data.type
-
         socketStart: () =>
+            @loadActivities()
+
+            @socket.on 'message', messageReceived = (message) =>
+                if @matchActivity(message.data.data)
+                    @activity.parseMessage(message.data.data, message.verb)
+
+            # Important for this to happen after the GET request
+            # because we want updates to happen after initial load
+            @socket.post '/api/v1/subscribe', { user: @user.id }
+
+        loadActivities: () =>
             @stream.ready()
 
-            filters = config.get('filters')
-            url = switch filters.length
-                when 0 then @user.getAll()
-                when 1 then @user.getAllVerb(filters[0])
-                when 2 then @user.getAllVerbObject(filters[0], filters[1])
+            urlContext = @filterManager.getFiltersForUrl()
+            url = @routing.urlForContext urlContext
 
             @socket.get url, (data) =>
                 if data.status == 404 then throw new Error(data.status)
@@ -87,17 +95,10 @@ define [
                     if o.items then _.each o.items, @stream.addActivity
                     else console.log 'User\'s followed, have no items'
 
-
             if config.get('enableFollowingData')
-                @socket.get @user.getFollowing(), (data) =>
+                url = @routing.get 'following', urlContext
+                @socket.get url, (data) =>
                     if data.status == 404 then throw new Error(data.status)
                     if data.length > 0 then _.each data, @stream.addActivity
                     else console.log 'User\'s followed, have no items'
 
-            # Important for this to happen after the GET request
-            # because we want updates to happen after initial load
-            @socket.post '/api/v1/subscribe', { user: @user.id }
-
-            @socket.on 'message', messageReceived = (message) =>
-                if @matchActivity(message.data.data)
-                    @activity.parseMessage(message.data.data, message.verb)

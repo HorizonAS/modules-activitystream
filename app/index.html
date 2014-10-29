@@ -40,15 +40,15 @@
             });
 
             require(["ActivityStream"], function(AS){
-                var user = {
+                var config = {
                     activityStreamServiceAPI: 'http://as.dev.nationalgeographic.com:9365/',
-                    filters: ['FAVORITED', 'cms_article'],
+                    filters: {'actor':  'db_user/1'},
                     user: {
                         type: 'db_user',
                         id: 1
                     }
                 }
-                AS.ready(user)
+                AS.ready(config)
             });
         </script>
 </body>
