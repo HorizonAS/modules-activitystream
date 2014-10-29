@@ -21,6 +21,7 @@ define [
             @stream = new StreamView() # Stream Module Init
             @activity = new Activity(@stream) # Activity Module Init
             @routing = new Routing()
+            @filterManager = new FilterManager()
 
         ready: (options) ->
             @user = new User(options.user)
@@ -30,14 +31,14 @@ define [
 
             # if filters are not set, it uses the current user
             filters = if options.filters then options.filters else {'actor': "#{@user.type}/#{@user.id}"}
-            @filterManager = new FilterManager(filters)
+            @filterManager.changeFilters(filters)
             @init()
 
         init: () ->
             if @socket? and @socket.socket.connected
                 # If the socket already exist it clears the stream and load the activites again
                 @stream.clearActivities()
-                @socketStart()
+                @loadActivities()
             else
                 @setAuth config.get('activityStreamServiceAPI') + 'api/v1', @user
 
@@ -72,7 +73,16 @@ define [
                 @socketStart()
 
         socketStart: () =>
-            self = this
+            @loadActivities()
+            # Important for this to happen after the GET request
+            # because we want updates to happen after initial load
+            @socket.post '/api/v1/subscribe', { user: @user.id }
+
+            @socket.on 'message', messageReceived = (message) =>
+                if @matchActivity(message.data.data)
+                    @activity.parseMessage(message.data.data, message.verb)
+
+        loadActivities: () =>
             @stream.ready()
 
             urlContext = @filterManager.getFiltersForUrl()
@@ -91,10 +101,3 @@ define [
                     if data.length > 0 then _.each data, @stream.addActivity
                     else console.log 'User\'s followed, have no items'
 
-            # Important for this to happen after the GET request
-            # because we want updates to happen after initial load
-            @socket.post '/api/v1/subscribe', { user: @user.id }
-
-            @socket.on 'message', messageReceived = (message) =>
-                if @matchActivity(message.data.data)
-                    @activity.parseMessage(message.data.data, message.verb)

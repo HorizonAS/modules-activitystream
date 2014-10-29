@@ -5,14 +5,22 @@ define [
 
     class FilterManager
 
-        constructor: (filters)->
+        constructor: ()->
            @filterBag = {}
-           @addFilters(filters)
 
+        # Add filters to the filterBag
+        # {@filters} object with filters configuration. i.e: {actor: 'db_user/1' ,'verb': 'FAVORITED'}
         addFilters: (filters) ->
             return unless filters?
             for key of filters
               @setFilter key, filters[key].split '/'
+
+
+        # clears the existing filterBag and add a new set of filters
+        # {@filters} object with filters configuration. i.e: {actor: 'db_user/1' ,'verb': 'FAVORITED'}
+        changeFilters: (filters) ->
+            @filterBag = {}
+            @addFilters(filters)
 
         # Set filters to the filter bag
         # {@name} =  string containing the filter name, i.e: verb, object.

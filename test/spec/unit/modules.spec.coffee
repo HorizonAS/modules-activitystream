@@ -63,7 +63,8 @@
                             "aid":"2",
                             "type":"blog_post"
 
-                @filterManager = new FilterManager(config)
+                @filterManager = new FilterManager()
+                @filterManager.addFilters(config)
                 expect(@filterManager.matchActivity(message)).to.be.ok
                 done()
 
@@ -85,7 +86,8 @@
                             "aid":"2",
                             "type":"blog_post"
 
-                @filterManager = new FilterManager(config)
+                @filterManager = new FilterManager()
+                @filterManager.addFilters(config)
                 expect(@filterManager.matchActivity(message)).to.be.not.ok
                 done()
 

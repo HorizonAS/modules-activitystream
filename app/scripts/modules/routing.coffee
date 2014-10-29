@@ -44,7 +44,7 @@ define [
         # {@name} route's name (i.e: following, followers_all)
         # {@ctx} object (i.e: {actor_aid: 1, actor_type: 'db_user'} )
         get: (name, ctx) ->
-            return '' if false == @routes.hasOwnProperty name
+            return '' unless @routes.hasOwnProperty name
 
             url = @routes[name]
             for name, value of ctx
