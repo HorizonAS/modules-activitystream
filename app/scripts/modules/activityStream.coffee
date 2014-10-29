@@ -74,13 +74,14 @@ define [
 
         socketStart: () =>
             @loadActivities()
-            # Important for this to happen after the GET request
-            # because we want updates to happen after initial load
-            @socket.post '/api/v1/subscribe', { user: @user.id }
 
             @socket.on 'message', messageReceived = (message) =>
                 if @matchActivity(message.data.data)
                     @activity.parseMessage(message.data.data, message.verb)
+
+            # Important for this to happen after the GET request
+            # because we want updates to happen after initial load
+            @socket.post '/api/v1/subscribe', { user: @user.id }
 
         loadActivities: () =>
             @stream.ready()
