@@ -78,7 +78,7 @@
                             "aid":"2",
                             "type":"db_user"
                     "verb":
-                          "type":"FAVORITED"
+                        "type":"FAVORITED"
                     "object":
                         "data":
                             "api":"http://localhost/blog/2",
@@ -91,7 +91,7 @@
 
 
         describe "Routing Module", ->
-            describe 'Given actor_type=db_user and actor_id=1', () ->
+            describe 'Given actor_type=db_user and actor_aid=1', () ->
                 it 'returns /actor/db_user/1/activities', (done) ->
                     @routing = new Routing()
                     url = @routing.urlForContext({actor_aid: 1, actor_type: 'db_user'})
@@ -99,11 +99,25 @@
                     done()
 
 
-            describe 'Given object_type=db_user and object_id=1', () ->
-                it 'returns /actor/db_user/1/activities', (done) ->
+            describe 'Given object_type=db_user and object_aid=1', () ->
+                it 'returns /object/db_user/1/activities', (done) ->
                     @routing = new Routing()
                     url = @routing.urlForContext({object_aid: 1, object_type: 'db_user'})
                     expect(url).to.be.contain('/object/db_user/1/activities')
+                    done()
+
+            describe 'Given actor_type=db_user, actor_aid=1 and verb_type=FOLLOWING', () ->
+                it 'returns /actor/db_user/1/FOLLOWING', (done) ->
+                    @routing = new Routing()
+                    url = @routing.urlForContext({actor_aid: 1, actor_type: 'db_user', verb_type: 'FOLLOWING'})
+                    expect(url).to.be.contain('/actor/db_user/1/FOLLOWING')
+                    done()
+
+            describe 'Given object_type=db_user, object_aid=1, verb_type=FOLLOWING and object_type=blog_article', () ->
+                it 'returns /actor/db_user/1/FOLLOWING/blog_article', (done) ->
+                    @routing = new Routing()
+                    url = @routing.urlForContext({actor_aid: 1, actor_type: 'db_user', verb_type: 'FOLLOWING', object_type: 'blog_article'})
+                    expect(url).to.be.contain('/actor/db_user/1/FOLLOWING/blog_article')
                     done()
 
         describe "Logger Module", ->

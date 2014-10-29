@@ -21,7 +21,6 @@ define [
             @stream = new StreamView() # Stream Module Init
             @activity = new Activity(@stream) # Activity Module Init
             @routing = new Routing()
-            window.r = @routing
 
         ready: (options) ->
             @user = new User(options.user)
@@ -82,8 +81,8 @@ define [
             @socket.get url, (data) =>
                 if data.status == 404 then throw new Error(data.status)
                 _.each data, (o) =>
-                        if o.items then _.each o.items, @stream.addActivity
-                        else console.log 'User\'s followed, have no items'
+                    if o.items then _.each o.items, @stream.addActivity
+                    else console.log 'User\'s followed, have no items'
 
             if config.get('enableFollowingData')
                 url = @routing.get 'following', urlContext
