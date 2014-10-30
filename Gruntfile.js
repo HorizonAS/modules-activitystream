@@ -330,7 +330,7 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     remote: 'git@github.com:natgeo/modules-activitystream.git',
-                    branch: 'dist'
+                    branch: 'build'
                 }
             }
         },
@@ -384,7 +384,7 @@ module.exports = function (grunt) {
                 'mocha',
                 'watch:test'
             ];
-            
+
         if(!isConnected) {
             return grunt.task.run(testTasks);
         } else {
