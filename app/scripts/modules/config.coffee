@@ -1,13 +1,13 @@
 define [
 	'localconfig'
 	'underscore'
-], (overrides, _) ->
+], (defaults, _) ->
 
 	'use strict'
 
 	class Config
 		constructor: () ->
-			@conf = @extend({}, @defaults, overrides)
+			@conf = defaults
 
 		overwrite: (args...) ->
 			return @conf unless args[0]
@@ -34,9 +34,5 @@ define [
 						args[0][key] = {} unless args[0][key]?
 						args[0][key] = @extend args[0][key], val
 			args[0]
-
-		defaults:
-			baseUrl: 'as.dev.nationalgeographic.com:9365/api/v1/'
-			filters: []
 
 	return new Config()
