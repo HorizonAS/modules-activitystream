@@ -7,7 +7,7 @@ define [
     activityStreamServiceAPI: '//activitystream-service.yoursite.com:9365/'
 
     # base url used by Routing module to build urls.
-    baseUrl: '//as.dev.nationalgeographic.com:9365/api/v1/'
+    baseUrl: '//activitystream-service.yoursite.com:9365/api/v1/'
     # Default filters when they are not set.
     filters: {}
 
