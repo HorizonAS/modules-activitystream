@@ -6,6 +6,11 @@ define [
     # URL to activitystream service (see: https://github.com/natgeo/activitystreams)
     activityStreamServiceAPI: '//activitystream-service.yoursite.com:9365/'
 
+    # base url used by Routing module to build urls.
+    baseUrl: '//activitystream-service.yoursite.com:9365/api/v1/'
+    # Default filters when they are not set.
+    filters: {}
+
     # List of APIs (if you have more than 1), to get the full data of each object you want to represent on the module.
     api:
 
